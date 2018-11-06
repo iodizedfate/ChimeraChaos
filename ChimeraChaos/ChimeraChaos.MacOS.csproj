@@ -67,6 +67,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="Content\bin\MacOSX\attic.xnb">
+      <Link>Content\attic.xnb</Link>
+    </None>
+    <None Include="Content\bin\MacOSX\ball.xnb">
+      <Link>Content\ball.xnb</Link>
+    </None>
+    <None Include="Content\bin\MacOSX\bearhead.xnb">
+      <Link>Content\bearhead.xnb</Link>
+    </None>
+    <None Include="Content\bin\MacOSX\fishbear.xnb">
+      <Link>Content\fishbear.xnb</Link>
+    </None>
+    <None Include="Content\bin\MacOSX\ground.xnb">
+      <Link>Content\ground.xnb</Link>
+    </None>
+    <None Include="Content\bin\MacOSX\mansion1.xnb">
+      <Link>Content\mansion1.xnb</Link>
+    </None>
+    <None Include="Content\bin\MacOSX\mouse.xnb">
+      <Link>Content\mouse.xnb</Link>
+    </None>
+    <None Include="Content\bin\MacOSX\room1.xnb">
+      <Link>Content\room1.xnb</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
