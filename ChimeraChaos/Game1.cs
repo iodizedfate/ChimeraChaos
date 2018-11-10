@@ -66,13 +66,16 @@ namespace ChimeraChaos.MacOS
             int monsterPerRoom = 10;
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
             //setup textures
-            Texture2D ballTexture = Content.Load<Texture2D>("ball");
             Texture2D roomTexture = Content.Load<Texture2D>("room1");
             Texture2D mansionTexture = Content.Load<Texture2D>("mansion1");
             mouseTexture = Content.Load<Texture2D>("mouse");
             Texture2D ground = Content.Load<Texture2D>("ground");
             Texture2D attic = Content.Load<Texture2D>("attic");
+
+
+            Texture2D ballTexture = Content.Load<Texture2D>("ball");
             Texture2D bearhead = Content.Load<Texture2D>("bearhead");
             Texture2D fishbear = Content.Load<Texture2D>("fishbear");
             //build mansion
@@ -84,19 +87,18 @@ namespace ChimeraChaos.MacOS
                 Room room = new Room(roomTexture);
                 for (int j = 1; j <= monsterPerRoom; j++)
                 {
-                    Texture2D monText;
-                    if (j % 2 == 0)
-                    {
-                        monText = bearhead;
-                    }
-                    else
-                    {
-                        monText = fishbear;
-                    }
+                    //Texture2D monText = j % 2 == 0 ? bearhead : fishbear;
+
                     //int size = rnd.Next(1,50);
-                    int size = 100;
-                    Monster monster = new Monster(monText, new Rectangle(rnd.Next(1,600), rnd.Next(1, 200), size, size));
+                    int size = 50;
+                    Head head = new Head(bearhead, new Rectangle(0, 0, size, size));
+                    Torso torso = new Torso(fishbear, new Rectangle(0, 0, size, size));
+                    Legs legs = new Legs(ballTexture, new Rectangle(0, 0, size, size));
+                    //Monster monster = new Monster(monText, new Rectangle(rnd.Next(1,600), rnd.Next(1, 200), size, size));
+                    Monster monster = new Monster(head, torso, legs, false);
+                    Monster monster2 = new Monster(head, torso, legs, true);
                     room.EnterRoom(monster);
+                    room.EnterRoom(monster2);
                 }
                 mansion.AddRoom(room);
             }
@@ -140,7 +142,6 @@ namespace ChimeraChaos.MacOS
 
             //TODO: Add your drawing code here
             spriteBatch.Begin();
-            //spriteBatch.Draw(texture, Vector2.Zero, Color.White);
             mansion.Draw(spriteBatch);
             spriteBatch.Draw(mouseTexture, mousePosition, Color.White);
             spriteBatch.End();

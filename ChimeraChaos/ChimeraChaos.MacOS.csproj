@@ -64,6 +64,9 @@
     <Compile Include="Room.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Mansion.cs" />
+    <Compile Include="Head.cs" />
+    <Compile Include="Torso.cs" />
+    <Compile Include="Legs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
